@@ -1,50 +1,55 @@
-ï»¿=== WP-Dialog ===
+=== WP-Dialog ===
 Contributors: ZhangGe
 Donate link: http://zhangge.net/about/
-Tags: WP_Dialog,artdialog,blog dialog,å‹å¥½å¯¹è¯æ¡†,åšå®¢å¯¹è¯æ¡†,æœç´¢æ¥è·¯
+Tags: WP_Dialog,artdialog,blog dialog,ÓÑºÃ¶Ô»°¿ò,²©¿Í¶Ô»°¿ò,ËÑË÷À´Â·,Ëæ»ú¹ö¶¯Ìõ,µ×²¿¹ö¶¯Ìõ,scroll bar
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
-The Friendly Dialog Wordpress Plugin. WordPresså‹å¥½å¯¹è¯æ¡†æ’ä»¶
+The Friendly Dialog And Rand Scroll Bar Wordpress Plugin. WordPressÓÑºÃ¶Ô»°¿ò&Ëæ»ú¹ö¶¯Ìõ²å¼þ
 
 == Description ==
 
-Added a Friendly Dialog for Wordpress blog that for display some Friendly Dialog at sometimes.
+Added a Friendly Dialog And Rand Scroll Bar for Wordpress blog that for display some Friendly Dialog at sometimes.
 
-ä¸ºä½ çš„åšå®¢æ·»åŠ ä¸€ä¸ªå‹å¥½å¯¹è¯æ¡†åŠŸèƒ½ã€‚
+ÎªÄãµÄ²©¿ÍÌí¼ÓÒ»¸öÓÑºÃ¶Ô»°¿ò¹¦ÄÜ¡£
 
-æ’ä»¶ç‰¹è‰²    
-    1ã€èƒ½å¤Ÿå–å¾—è®¿å®¢æœç´¢æ¥è·¯å’Œæœç´¢å…³é”®è¯ï¼Œå¹¶åœ¨å³ä¸‹è§’æ»‘å‡ºæ¬¢è¿Žå¯¹è¯æ¡†ï¼›    
-    2ã€èƒ½å¤ŸåŒºåˆ†ç”¨æˆ·æ˜¯å¦åœ¨åšå®¢ç•™è¿‡è¨€ï¼Œä»Žè€Œç»™å‡ºä¸åŒçš„æ¬¢è¿Žæç¤ºï¼›    
-    3ã€å½“æœ‰äººå¤åˆ¶åšå®¢ä»»ä½•å†…å®¹æ—¶ï¼Œå°†å¼¹å‡ºå‹å¥½çš„ç‰ˆæƒä¿ç•™æé†’ã€‚    
+²å¼þÌØÉ«    
+    1¡¢ÄÜ¹»È¡µÃ·Ã¿ÍËÑË÷À´Â·ºÍËÑË÷¹Ø¼ü´Ê£¬²¢ÔÚÓÒÏÂ½Ç»¬³ö»¶Ó­¶Ô»°¿ò£»    
+    2¡¢ÄÜ¹»Çø·ÖÓÃ»§ÊÇ·ñÔÚ²©¿ÍÁô¹ýÑÔ£¬´Ó¶ø¸ø³ö²»Í¬µÄ»¶Ó­ÌáÊ¾£»
+    3¡¢ÔÚ²©¿Íµ×²¿¼¯³ÉËæ»úÎÄÕÂ¹ö¶¯ÍÆ¼öÌõ£¬²¢ÔÚÓÒ²à¼¯³ÉÊÖ¶¯ºô³ö¶Ô»°¿ò°´Å¥£»
+    3¡¢µ±ÓÐÈË¸´ÖÆ²©¿ÍÈÎºÎÄÚÈÝÊ±£¬½«µ¯³öÓÑºÃµÄ°æÈ¨±£ÁôÌáÐÑ¡£    
         
-åˆ¶ä½œè¿™ä¸ªæ’ä»¶çš„åˆè¡·æ˜¯ä¸ºäº†åŠªåŠ›å¢žåŠ ç½‘ç«™ç²˜æ€§ï¼å°½æœ€å¤§çš„å¯èƒ½ç•™ä½é€šè¿‡æœç´¢å¼•æ“Žè¿‡æ¥çš„ç”¨æˆ·ï¼Œå› ä¸ºè™½ç„¶åšå®¢å¯èƒ½æ— æ³•æ»¡è¶³ç”¨æˆ·çš„æœç´¢éœ€æ±‚ï¼Œä½†å¹¶ä¸æ˜¯åšä¸»ä¸ä¼šï¼Œåªæ˜¯åšå®¢æœªå†™åˆ°è¿™æ–¹é¢çš„å†…å®¹ã€‚æ‰€ä»¥ï¼Œæˆ‘å¸Œæœ›é€šè¿‡è¿™æ ·ä¸€ä¸ªå‹å¥½å¯¹è¯ï¼Œèƒ½è®©ç”¨æˆ·ä¸»åŠ¨ç•™è¨€è”ç³»åšä¸»ï¼Œè®©åšä¸»åŠæ—¶æ‰©å……ç”¨æˆ·æ‰€éœ€å†…å®¹ï¼Œåœ¨ä¸°å¯Œåšå®¢çš„åŒæ—¶æé«˜ç”¨æˆ·ç²˜æ€§ï¼Œæœ€ç»ˆé™ä½Žè·³å‡ºçŽ‡ï¼å½“ç„¶ï¼ŒåŽæ¥è¿˜åŠ ä¸Šäº†å¤åˆ¶æé†’åŠŸèƒ½ï¼Œä¸»è¦å‘çŽ°å¾ˆå¤šäººå·æ‘¸è½¬è½½å´å¿˜è®°ä¿ç•™åŽŸæ–‡é“¾æŽ¥ï¼Œæ‰€ä»¥æ’ä»¶ä¹Ÿå°±æ¸©é¦¨çš„æç¤ºä¸€ä¸‹ï¼Œé˜²å›å­ä¸é˜²å°äººï¼Œå¸Œæœ›ä½ å–œæ¬¢ï¼
+ÖÆ×÷Õâ¸ö²å¼þµÄ³õÖÔÊÇÎªÁËÅ¬Á¦Ôö¼ÓÍøÕ¾Õ³ÐÔ£¡¾¡×î´óµÄ¿ÉÄÜÁô×¡Í¨¹ýËÑË÷ÒýÇæ¹ýÀ´µÄÓÃ»§£¬ÒòÎªËäÈ»²©¿Í¿ÉÄÜÎÞ·¨Âú×ãÓÃ»§µÄËÑË÷ÐèÇó£¬µ«²¢²»ÊÇ²©Ö÷²»»á£¬Ö»ÊÇ²©¿ÍÎ´Ð´µ½Õâ·½ÃæµÄÄÚÈÝ¡£ËùÒÔ£¬ÎÒÏ£ÍûÍ¨¹ýÕâÑùÒ»¸öÓÑºÃ¶Ô»°£¬ÄÜÈÃÓÃ»§Ö÷¶¯ÁôÑÔÁªÏµ²©Ö÷£¬ÈÃ²©Ö÷¼°Ê±À©³äÓÃ»§ËùÐèÄÚÈÝ£¬ÔÚ·á¸»²©¿ÍµÄÍ¬Ê±Ìá¸ßÓÃ»§Õ³ÐÔ£¬×îÖÕ½µµÍÌø³öÂÊ£¡µ±È»£¬ºóÀ´»¹¼ÓÉÏÁË¸´ÖÆÌáÐÑ¹¦ÄÜ£¬Ö÷Òª·¢ÏÖºÜ¶àÈËÍµÃþ×ªÔØÈ´Íü¼Ç±£ÁôÔ­ÎÄÁ´½Ó£¬ËùÒÔ²å¼þÒ²¾ÍÎÂÜ°µÄÌáÊ¾Ò»ÏÂ£¬·À¾ý×Ó²»·ÀÐ¡ÈË£¬Ï£ÍûÄãÏ²»¶£¡
 
-è¯¦æƒ…è¯·æµè§ˆï¼š[http://zhangge.net/4718.html](http://zhangge.net/4718.html)
+ÏêÇéÇëä¯ÀÀ£º[http://zhangge.net/4718.html](http://zhangge.net/4718.html)
 
 == Installation ==
 
-å¯ä»¥é€šè¿‡ä»¥ä¸‹ä¸¤ç§æ–¹æ³•çš„å…¶ä¸­ä¸€ç§æ¥å®‰è£…ZgBoke-Nav æ’ä»¶ï¼š
+¿ÉÒÔÍ¨¹ýÒÔÏÂÁ½ÖÖ·½·¨µÄÆäÖÐÒ»ÖÖÀ´°²×°ZgBoke-Nav ²å¼þ£º
 
-1. å°†ä¸‹è½½çš„æ–‡ä»¶è§£åŽ‹ç¼©ï¼Œç„¶åŽå°†`WP-Dialog`æ–‡ä»¶å¤¹ ä¸Šä¼ åˆ° `/wp-content/plugins/`ç›®å½•ï¼Œåœ¨æ’ä»¶åŽå°å¯ç”¨å³å¯
+1. ½«ÏÂÔØµÄÎÄ¼þ½âÑ¹Ëõ£¬È»ºó½«`WP-Dialog`ÎÄ¼þ¼Ð ÉÏ´«µ½ `/wp-content/plugins/`Ä¿Â¼£¬ÔÚ²å¼þºóÌ¨ÆôÓÃ¼´¿É
 
-2. ç›´æŽ¥åœ¨åŽå°-å®‰è£…æ’ä»¶ï¼Œæœç´¢'WP-Dialog'ï¼ŒæŒ‰ç…§æç¤ºå®‰è£…å¯ç”¨
+2. Ö±½ÓÔÚºóÌ¨-°²×°²å¼þ£¬ËÑË÷'WP-Dialog'£¬°´ÕÕÌáÊ¾°²×°ÆôÓÃ
 
 
 == Frequently Asked Questions ==
 
-å¦‚æžœå‘çŽ°å¯ç”¨æ’ä»¶åŽï¼Œæ— æ³•å¼¹å‡ºå¯¹è¯æ¡†ï¼Œå¯èƒ½æœ‰å¦‚ä¸‹æƒ…å†µï¼š
+Èç¹û·¢ÏÖÆôÓÃ²å¼þºó£¬ÎÞ·¨µ¯³ö¶Ô»°¿ò£¬¿ÉÄÜÓÐÈçÏÂÇé¿ö£º
 
-1. ä¸»é¢˜ç¦ç”¨äº†wp_footerä¸­çš„jsè¾“å‡ºï¼Œè¿™ç§æƒ…å†µè¯·ä½¿ç”¨ä»£ç éƒ¨ç½²è¿™ä¸ªåŠŸèƒ½ï¼Œæˆ–è€…å–æ¶ˆç¦ç”¨å³å¯;
+1. Ö÷Ìâ½ûÓÃÁËwp_footerÖÐµÄjsÊä³ö£¬ÕâÖÖÇé¿öÇëÊ¹ÓÃ´úÂë²¿ÊðÕâ¸ö¹¦ÄÜ£¬»òÕßÈ¡Ïû½ûÓÃ¼´¿É;
 
-2. åšå®¢å¯èƒ½å­˜åœ¨ç¼“å­˜ï¼Œå¯¼è‡´jså¹¶æœªåŠæ—¶åŠ è½½ï¼Œæ¸…æ¥šç¼“å­˜å†è¯•;
+2. ²©¿Í¿ÉÄÜ´æÔÚ»º´æ£¬µ¼ÖÂjs²¢Î´¼°Ê±¼ÓÔØ£¬Çå³þ»º´æÔÙÊÔ;
 
-3. å…¶ä»–æœªçŸ¥å†²çªï¼Œè¯·åˆ°æ’ä»¶ä¸»é¡µç•™è¨€[http://zhangge.net/4718.html](http://zhangge.net/4718.html)
+3. ÆäËûÎ´Öª³åÍ»£¬Çëµ½²å¼þÖ÷Ò³ÁôÑÔ[http://zhangge.net/4718.html](http://zhangge.net/4718.html)
 
-Best Regardsï¼
+Èô·¢ÏÖ¹ö¶¯ÌõÎÞ·¨Æô¶¯£¬¿ÉÄÜµÄÇé¿öÓÐ£º
+
+1. ²©¿ÍÎ´ÕýÈ·¼ÓÔØJQuery»òÖØ¸´¼ÓÔØµ¼ÖÂ³åÍ»£¬½â¾ö°ì·¨²Î¿¼[http://zhangge.net/4387.html](http://zhangge.net/4387.html)
+
+Best Regards£¡
 
 == Screenshots ==
 
@@ -52,16 +57,22 @@ Best Regardsï¼
 
 2. newuser Screenshot 
 
-3. searcher Screenshot 
+3. searcher Screenshot
+
+4. scroll Screenshot
  
 == Changelog ==
 
+= 1.1.0 =
+
+* ÐÂÔöµ×²¿¹ö¶¯Ìõ¹¦ÄÜ
+
 = 1.0.0 =
 
-* å‘å¸ƒWP-Dialog æ’ä»¶
+* ·¢²¼WP-Dialog ²å¼þ
 
 == Upgrade notice ==
 
-* æ’ä»¶é¦–æ¬¡å‘å¸ƒï¼Œæœ‰ä»»ä½•é—®é¢˜è¯·è‡³æ’ä»¶ä¸»é¡µåé¦ˆï¼Œéžå¸¸æ„Ÿè°¢ï¼
+* ²å¼þÊ×´Î·¢²¼£¬ÓÐÈÎºÎÎÊÌâÇëÖÁ²å¼þÖ÷Ò³·´À¡£¬·Ç³£¸ÐÐ»£¡
 
 == Arbitrary section 1 ==
