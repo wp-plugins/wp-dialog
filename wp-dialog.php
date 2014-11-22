@@ -47,7 +47,7 @@ if( is_admin() ) {
     add_action('admin_menu', 'display_wp_dialog_menu');   
 }   
 function display_wp_dialog_menu() {   
-    add_options_page('WP Dialog', 'WP Dialog','administrator','wp_dialog', 'display_wp_dialog_page');
+    add_options_page('WP_Dialog友好对话框插件设置', 'WP Dialog','administrator','wp_dialog', 'display_wp_dialog_page');
 }   
 function display_wp_dialog_page() {   
 ?>   
