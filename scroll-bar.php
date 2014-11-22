@@ -1,3 +1,4 @@
+<?php if(get_option('scroll_bar')=="display" || get_option('scroll_bar')=="" ){?>
 <div id="gg">
 	<div class="close"><a href="javascript:void(0)" onclick="$('#gg').slideUp('slow');" title="关闭">×</a>
 	<div id="feedb"><a href="/feed" rel="nofollow" target="_blank" title="欢迎订阅我的博客" class="image"><img alt="订阅图标按钮" src="<?php echo plugins_url('images/feed.gif',__FILE__);?>" style="width:23px;height:23px;" /></a>
@@ -18,6 +19,7 @@
 	</div>
 </div>
 <script type="text/javascript" src="<?php echo plugins_url('scroll_bar.js',__FILE__);?>"></script>
+<?php } ?>
 <?php if(get_option('copyright_warn')=="enabled"||get_option('copyright_warn')==""){ ?>
 <script type="text/javascript">
 function warning(){

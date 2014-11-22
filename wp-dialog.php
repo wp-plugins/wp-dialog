@@ -3,7 +3,7 @@
 Plugin Name: WP-Dialog
 Plugin URI:  http://zhangge.net/4718.html
 Description: <strong>WordPress友好对话框&底部底部滚动推荐条插件</strong>，1. 通过这个插件可以为博客增加一个友好的右下角滑动对话框，可以自动判断搜索来路、新老访客(是否留过言)，给出不同的欢迎语句！2. 在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框按钮；3. 启用这个插件之后还能够在有人复制文章网站内容的时候，弹出转载版权提示；第2、3项功能可以到到设置中关闭。
-Version: 1.2.0
+Version: 1.2.1
 Author: 张戈
 Author URI: http://zhangge.net/about/
 Copyright: 张戈博客原创插件，任何个人或团体不可擅自更改版权。
@@ -16,10 +16,8 @@ class WP_Dialog{
             add_action('wp_footer', 'WP-Dialog');
             function scroll_bar(){
 	            include('scroll-bar.php');
-            }
-            if(get_option('scroll_bar')=="display" || get_option('scroll_bar')=="" ) {    
-                add_action( 'wp_footer', 'scroll_bar' ); 
-            }    
+            }  
+            add_action( 'wp_footer', 'scroll_bar' );   
 add_filter('plugin_action_links', 'WP_Dialog_plugin_action_links', 10, 3);
 function WP_Dialog_plugin_action_links($action_links, $plugin_file, $plugin_info) {
     $this_file = basename(__FILE__);

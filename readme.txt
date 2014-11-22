@@ -3,8 +3,8 @@ Contributors: ZhangGe
 Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.2.0
+Tested up to: 4.0.1
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
@@ -63,7 +63,11 @@ Best Regards！
  
 == Changelog ==
 
-= 1.1.0 =
+= 1.2.1 =
+
+* 修复关闭滚动条导致版权提醒功能失效的bug
+
+= 1.2.0 =
 
 * 新增插件设置功能
 
