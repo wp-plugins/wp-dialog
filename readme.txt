@@ -4,7 +4,7 @@ Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
@@ -62,6 +62,10 @@ Best Regards！
 4. scroll Screenshot
  
 == Changelog ==
+
+= 1.1.0 =
+
+* 新增插件设置功能
 
 = 1.1.0 =
 
