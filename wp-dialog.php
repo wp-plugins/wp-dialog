@@ -51,7 +51,7 @@ function display_wp_dialog_page() {
     <div style="width: 420px;"><h2>WP_Dialog友好对话框插件设置</h2>
     <form accept-charset="GBK" action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank"><input name="optEmail" type="hidden" value="287988783@qq.com" />
     <input name="payAmount" type="hidden" value="0" />
-    <input id="title" name="title" type="hidden" value="赞助张戈博客o(∩_∩)o" />
+    <input id="title" name="title" type="hidden" value="赞助张戈博客" />
     <input name="memo" type="hidden" value="请填写您的联系方式，以便张戈答谢。" />
     <input title="如果好用，您可以赞助张戈博客" name="pay" src="<?php echo plugins_url('images/payment.png',__FILE__);?>" type="image" value="捐赠共勉" style="float: right;margin-top: -43px;"/>
     </form>
