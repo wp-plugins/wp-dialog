@@ -1,3 +1,8 @@
+<?php if(get_option('display_dialog')=="" || get_option('display_dialog')=="display"){ ?>
+<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.2',__FILE__);?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.2',__FILE__);?>" />
+<?php } ?>
+
 <?php if(get_option('scroll_bar')=="display" || get_option('scroll_bar')=="" ){?>
 <div id="gg">
 	<div class="close"><a href="javascript:void(0)" onclick="$('#gg').slideUp('slow');" title="关闭">×</a>
@@ -20,6 +25,7 @@
 </div>
 <script type="text/javascript" src="<?php echo plugins_url('scroll_bar.js',__FILE__);?>"></script>
 <?php } ?>
+
 <?php if(get_option('copyright_warn')=="enabled"||get_option('copyright_warn')==""){ ?>
 <script type="text/javascript">
 function warning(){
