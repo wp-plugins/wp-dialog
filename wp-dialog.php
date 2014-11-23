@@ -93,10 +93,10 @@ function display_wp_dialog_page() {
 </p>
 <p><h3>底部滚动文章推荐条</h3>
     <input type="radio" name="scroll_bar" id="display" value="display" <?php echo $display;?>/>
-    <label for="display" style="cursor: pointer;"><b>显示</b></label>
+    <label for="display" style="cursor: pointer;"><b>开启</b></label>
     <br />
     <input type="radio" name="scroll_bar" id="hidden" value="hidden" <?php echo $hidden;?>/>
-    <label for="hidden" style="cursor: pointer;"><b>隐藏</b></label>
+    <label for="hidden" style="cursor: pointer;"><b>关闭</b></label>
 </p> 
 <?php if((get_option('scroll_bar')==""||get_option('scroll_bar')=="display")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
 <p><h3>手动呼出对话框功能</h3>
