@@ -1,4 +1,4 @@
-=== WP-Dialog ===
+=== WP Dialog ===
 Contributors: ZhangGe
 Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar

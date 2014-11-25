@@ -1,6 +1,6 @@
 <?php 
 /*
-Plugin Name: WP-Dialog
+Plugin Name: WP Dialog
 Plugin URI:  http://zhangge.net/4718.html
 Description: <strong>WordPress友好对话框&底部底部滚动推荐条插件</strong>，1. 通过这个插件可以为博客增加一个友好的右下角滑动对话框，可以自动判断搜索来路、新老访客(是否留过言)，给出不同的欢迎语句！2. 在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框按钮；3. 启用这个插件之后还能够在有人复制文章网站内容的时候，弹出转载版权提示；所有功能在设置界面都能灵活地开启或关闭。
 Version: 1.2.2
