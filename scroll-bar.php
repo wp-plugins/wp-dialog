@@ -18,7 +18,7 @@
 				while ( $loop->have_posts() ) : $loop->the_post();
 			?>
 			<li><a href="<?php the_permalink(); ?>" target="_blank" title="细看 <?php the_title(); ?>">
-			<?php echo '随机推荐：《';the_title();echo '》';if(function_exists('the_views')) {print '( 阅读';the_views();print '次 |</a>';}comments_popup_link('坐等沙发','1条评论','%条评论'); ?>)</li>
+			<?php echo '随机推荐：《';the_title();echo '》(';if(function_exists('the_views')) {print ' 阅读';the_views();print '次 |</a>';}comments_popup_link('坐等沙发','1条评论','%条评论'); ?>)</li>
 			<?php endwhile; ?>
 		</ul>
 	</div>
