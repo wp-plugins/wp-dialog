@@ -49,7 +49,7 @@ function display_wp_dialog_page() {
 ?>   
 <div> 
     <div style="width: 420px;"><h2>WP_Dialog友好对话框插件设置</h2>
-    <form accept-charset="GBK" action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank"><input name="optEmail" type="hidden" value="287988783@qq.com" />
+    <form accept-charset="GBK" action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank"><input name="optEmail" type="hidden" value="ge@zhangge.net" />
     <input name="payAmount" type="hidden" value="0" />
     <input id="title" name="title" type="hidden" value="赞助张戈博客" />
     <input name="memo" type="hidden" value="请填写您的联系方式，以便张戈答谢。" />
