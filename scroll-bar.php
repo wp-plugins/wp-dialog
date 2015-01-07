@@ -50,7 +50,7 @@ document.body.oncopy=function(){warning();}
 
 <?php if((get_option('crazy')=="display"||get_option('crazy')=="")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
 var hicss="<?php echo plugins_url('skins/hi.css',__FILE__);?>";
-var CrazyMusic=<?php echo json_encode(preg_split('[\n|,]', get_option('music')));?>;
+var CrazyMusic=<?php echo json_encode(preg_split('[\n]', get_option('music')));?>;
 function KeyMonitor(){ 
     if (event.keyCode == 27){
         stopCrazy()
