@@ -115,8 +115,11 @@ function display_wp_dialog_page() {
 <p> 歌曲url地址(一行一首)：<br />
 <textarea name="music" id="music" placeholder="比如：http://zhagnge.net/music.mp3(推荐将音乐上传到七牛)" cols="55" rows="6"><?php echo get_option('music');?></textarea>
 </p>
-<span><b>留言板地址：</b></span>
-    <input type="text" name="guestbook" placeholder="比如：http://zhagnge.net/liuyan/" id="guestbook" style="width:300px" value="<?php echo get_option('guestbook');?>"/>（对话框超链接）
+<span>博客留言地址：</span>
+    <input type="text" name="guestbook" placeholder="比如：http://zhagnge.net/liuyan/" id="guestbook" style="width:322px" value="<?php echo get_option('guestbook');?>"/>（对话框超链接）<br />
+<span>邮件订阅地址：</span>
+    <input type="text" name="Diy_feed" placeholder="比如：http://list.qq.com/cgi-bin/qf_invite?id=71a2f28dff63348c301ded982b0a083857be253891e9bae8" id="guestbook" style="width:322px" value="<?php echo get_option('Diy_feed');?>"/>（留空则使用WP默认订阅）
+    
 <?php if((get_option('scroll_bar')==""||get_option('scroll_bar')=="display")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
 <p><h4>手动呼出对话框功能</h4>
     <input type="radio" name="display_button" id="button_display" value="display" <?php echo $button_display;?>/>
@@ -135,7 +138,7 @@ function display_wp_dialog_page() {
 </p> 
     <br />
     <input type="hidden" name="action" value="update" />   
-    <input type="hidden" name="page_options" value="display_dialog,scroll_bar,crazy,display_button,copyright_warn,guestbook,music" />
+    <input type="hidden" name="page_options" value="display_dialog,scroll_bar,crazy,display_button,copyright_warn,guestbook,music,Diy_feed" />
     <input type="submit" value="保存设置" class="button-primary" />
 </p>   
 </form>
