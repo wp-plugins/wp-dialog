@@ -112,7 +112,7 @@ function display_wp_dialog_page() {
     <input type="radio" name="crazy" id="hidden_hi" value="hidden" <?php echo $hidden_hi;?>/>
     <label for="hidden_hi" style="cursor: pointer;">关闭</label>
 </p>
-<p> 歌曲url地址(一行一首)：<br />
+<p> 歌曲url地址(必填项目,一首一行)：<br />
 <textarea name="music" id="music" placeholder="比如：http://zhagnge.net/music.mp3(推荐将音乐上传到七牛)" cols="55" rows="6"><?php echo get_option('music');?></textarea>
 </p>
 <span>博客留言地址：</span>
