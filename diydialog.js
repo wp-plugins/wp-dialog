@@ -1,5 +1,5 @@
 /*!
- * 博客友好对话框
+ * 博客友好对话框 Version 1.2.3
  * Date: 2014-11-20 23:30
  * http://zhangge.net/4718.html
  * (c) 2013-2014 张戈博客保留所有权利.
@@ -2076,7 +2076,15 @@ _$document.bind('mousedown', function (event) {
 });
 
 })(this.art || this.jQuery && (this.art = jQuery));
-
+/*!
+ * 博客友好对话框
+ * Date: 2014-11-20 23:30
+ * http://zhangge.net/4718.html
+ * (c) 2013-2014 张戈博客保留所有权利.
+ *
+ * 给博客添加一个友好的对话框，提高访客体验度
+ * 张戈博客原创功能，引用请保留次版权，谢谢合作！
+ */
 var str1=""; 
 var str2= ""; 
 var refer=document.referrer; 
@@ -2153,7 +2161,24 @@ if(ykey.indexOf(skey)>-1){ }else {}
 
 function deleteCookie(name){ 
     document.cookie=name+"=;path=/"; 
-} 
+}
+//判断函数是否存在
+function isExitsFunction(funcName) {
+    try {
+        if (typeof(eval(funcName)) == "function") {
+            return true;
+        }
+    } catch(e) {}
+    return false;
+}
+//备用的cookies获取函数
+if(!isExitsFunction('GetCookie')){
+    function GetCookie(sName) {
+	    var arr = document.cookie.match(new RegExp("(^| )"+sName+"=([^;]*)(;|$)"));
+	    if(arr !=null){return unescape(arr[2])};
+	    return null;
+    }
+}
 function getCookie(name){ 
     var strCookie=document.cookie; 
     var arrCookie=strCookie.split("; "); 
@@ -2177,7 +2202,22 @@ function addCookie(name,value,expiresHours){
 		document.cookie = name + "=" + escape(value)+ "; path=/";
 	}
 } 
-
+//抖动输入框
+artDialog.fn.shake = function (){
+    var style = this.DOM.wrap[0].style,
+        p = [4, 8, 4, 0, -4, -8, -4, 0],
+        fx = function () {
+            style.marginLeft = p.shift() + 'px';
+            if (p.length <= 0) {
+                style.marginLeft = 0;
+                clearInterval(timerId);
+            };
+        };
+    p = p.concat(p.concat(p));
+    timerId = setInterval(fx, 13);
+    return this;
+};
+//右下角滑出通知
 artDialog.notice = function (options) {
     var opt = options || {},
         api, aConfig, hide, wrap, top,
@@ -2217,18 +2257,51 @@ artDialog.notice = function (options) {
     };
     return artDialog(config);
 };
+//警告的提醒
+artDialog.alert_warning= function (content, callback){
+    return artDialog({
+        id: 'Alert',
+        icon: 'warning',
+        fixed: true,
+        lock: true,
+        content: content,
+        ok: true,
+        close: callback
+    });
+};
+
+//成功的提醒
+artDialog.alert_succeed = function (content, callback){
+    return artDialog({
+        id: 'Alert',
+        icon: 'succeed',
+        fixed: true,
+        lock: true,
+        content: content,
+        ok: true,
+        close: callback
+    });
+};
 function welcome(){
     if (ykey != 'undefined' && ykey != ''&& ykey != null){
         var tipkey = '您搜索的关键词是【'+ykey+'】，';
     } else {
-        var tipkey = '';
+        var tipkey = '';(getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*')||GetCookie('author'))
     }
-    var username = decodeURIComponent(getCookie('author') || getCookie('name')|| getCookie('inpName')|| getCookie('commentposter')||null);
-    if (window.location.host == 'zhangge.net') {
-        var welurl = '<a target="_blank" style="color:#0196e3;" href="http://zhangge.net/liuyan">给我留言</a>';
-    } else {
-        var welurl = '给我留言';
-    }
+    var username = decodeURIComponent(
+            (getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('author')
+        ) || (
+            getCookie('name').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('name')
+        ) || (
+            getCookie('inpName').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('inpName')
+        ) || (
+            getCookie('commentposter').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('commentposter')
+        ) || null);
+    // if (window.location.host == 'zhangge.net') {
+    //     var welurl = '<a target="_blank" style="color:#0196e3;" href="http://zhangge.net/liuyan">给我留言</a>';
+    // } else {
+    //     var welurl = '给我留言';
+    // }
     if (search != null) {
         if (username != "null") {
                 var title = "【"+username+'】,欢迎从【'+search+'】回来！';
@@ -2270,14 +2343,51 @@ function DiyDialog(title,content){
 $(document).ready(function(){
     welcome();
 });
-artDialog.alert = function (content, callback){
-    return artDialog({
-        id: 'Alert',
-        icon: 'warning',
-        fixed: true,
-        lock: true,
-        content: content,
-        ok: true,
-        close: callback
+
+function warning(){
+    if(navigator.userAgent.indexOf("MSIE")>0)  {   
+        art.dialog.alert('复制成功！若要转载请务必保留原文链接，谢谢合作！');
+    } else {  
+        alert("复制成功！若要转载请务必保留原文链接，谢谢合作！");
+    }
+}
+document.body.oncopy=function(){warning();}
+//GG
+function turnoff(obj){
+document.getElementById(obj).style.display="none";
+}
+ // 文字滚动
+    (function($){
+    $.fn.extend({
+    Scroll:function(opt,callback){
+    if(!opt) var opt={};
+    var _this=this.eq(0).find("ul:first");
+    var        lineH=_this.find("li:first").height(),
+    line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10),
+    speed=opt.speed?parseInt(opt.speed,10):7000, //卷动速度，数值越大，速度越慢（毫秒）
+    timer=opt.timer?parseInt(opt.timer,10):7000; //滚动的时间间隔（毫秒）
+    if(line==0) line=1;
+    var upHeight=0-line*lineH;
+    scrollUp=function(){
+    _this.animate({
+    marginTop:upHeight
+    },speed,function(){
+    for(i=1;i<=line;i++){
+    _this.find("li:first").appendTo(_this);
+    }
+    _this.css({marginTop:0});
     });
-};
+    }
+    _this.hover(function(){
+    clearInterval(timerID);
+    },function(){
+    timerID=setInterval("scrollUp()",timer);
+    }).mouseout();
+    }
+    })
+    })(jQuery);
+    $(document).ready(function(){
+    $(".bulletin").Scroll({line:1,speed:1000,timer:5000});//修改此数字调整滚动时间
+    });
+//crazy    
+function hig(){(function(){function c(){ $(".mw_added_css").remove();var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){$("audio").remove();var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},5000)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>如果你正在读这篇文章，那是因为你的浏览器不支持音频元素。我们建议你得到一个新的浏览器。</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i=CrazyMusic[Math.floor(Math.random()*Number(CrazyMusic.length))];var f=hicss;var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()};function stopCrazy(){ $("audio").remove();$(".mw_added_css").remove()}    

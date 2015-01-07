@@ -7,9 +7,15 @@
 <div id="gg">
 	<div class="close"><a href="javascript:void(0)" onclick="$('#gg').slideUp('slow');" title="关闭">×</a>
 	<div id="feedb"><a href="/feed" rel="nofollow" target="_blank" title="欢迎订阅我的博客" class="image"><img alt="订阅图标按钮" src="<?php echo plugins_url('images/feed.gif',__FILE__);?>" style="width:23px;height:23px;" /></a>
+	
+<?php if((get_option('crazy')=="display"||get_option('crazy')=="")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
+	<a title="亲，点我放松一下吧~！(单击启动，双击或ESC停止)" id="hig" href="javascript:void(0);" onclick="hig();" ondblclick="stopCrazy();"><img src="<?php echo plugins_url('images/crazy.png',__FILE__);?>" style="height:23px;width:22px;margin: -1px 0 0 0"></a>	
+<?php } ?>
+
 <?php if((get_option('display_button')=="display"||get_option('display_button')=="")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
 	<a href="javascript:void(0)" onclick="deleteCookie('welcome');welcome();" title="呼出欢迎对话框"><img src="<?php echo plugins_url('skins/icons/face-happy.png',__FILE__);?>" style="width:23px;height:23px;"></a>
 <?php } ?>
+
 	</div>
 	<div class="bulletin">
 		<ul>
@@ -23,11 +29,15 @@
 		</ul>
 	</div>
 </div>
-<script type="text/javascript" src="<?php echo plugins_url('scroll_bar.js',__FILE__);?>"></script>
 <?php } ?>
 
-<?php if(get_option('copyright_warn')=="enabled"||get_option('copyright_warn')==""){ ?>
 <script type="text/javascript">
+<?php if(get_option('guestbook') != ''){ ?>
+    var welurl = '<a target="_blank" style="color:#0196e3;" href="<?php echo get_option('guestbook');?>">给我留言</a>';
+<?php } else { ?>
+        var welurl = '给我留言';
+<?php } ?>
+<?php if(get_option('copyright_warn')=="enabled"||get_option('copyright_warn')==""){ ?>
 function warning(){
     if(navigator.userAgent.indexOf("MSIE")>0)  {   
         art.dialog.alert('复制成功！若要转载请务必保留原文链接，谢谢合作！');
@@ -36,5 +46,17 @@ function warning(){
     }
 }
 document.body.oncopy=function(){warning();}
-</script>
 <?php } ?>
+
+<?php if((get_option('crazy')=="display"||get_option('crazy')=="")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
+var hicss="<?php echo plugins_url('skins/hi.css',__FILE__);?>";
+var CrazyMusic=<?php echo json_encode(preg_split('[\n|,]', get_option('music')));?>;
+function KeyMonitor(){ 
+    if (event.keyCode == 27){
+        stopCrazy()
+    }; 
+ };
+$(document).dblclick(stopCrazy);
+$(document).keydown(KeyMonitor);
+<?php } ?>
+</script>
