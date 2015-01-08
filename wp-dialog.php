@@ -10,10 +10,10 @@ Copyright: 张戈博客原创插件，任何个人或团体不可擅自更改版
 */
 class WP_Dialog{  
     function __construct(){
-            function scroll_bar(){
+            function wp_dialog_bar(){
 	            include('scroll-bar.php');
             }  
-            add_action( 'wp_footer', 'scroll_bar' );   
+            add_action( 'wp_footer', 'wp_dialog_bar' );   
 add_filter('plugin_action_links', 'WP_Dialog_plugin_action_links', 10, 3);
 
 function WP_Dialog_plugin_action_links($action_links, $plugin_file, $plugin_info) {
@@ -74,7 +74,7 @@ function display_wp_dialog_page() {
             $hidden_dialog='checked="checked"';
         }
         //滚动条
-        if (get_option('scroll_bar')=="" || get_option('scroll_bar')=="display"){
+        if (get_option('wp_dialog_bar')=="" || get_option('wp_dialog_bar')=="display"){
             $display_bar='checked="checked"';
         } else {
             $hidden_bar='checked="checked"';
@@ -130,10 +130,10 @@ function display_wp_dialog_page() {
 <textarea name="st_content" id="st_content" placeholder="留空则使用插件默认欢迎语..." cols="55" rows="3"><?php echo $st_content;?></textarea><br />
 </p>
 <p><h4>底部滚动推荐条</h4>
-    <input type="radio" name="scroll_bar" id="display_bar" value="display" <?php echo $display_bar;?>/>
+    <input type="radio" name="wp_dialog_bar" id="display_bar" value="display" <?php echo $display_bar;?>/>
     <label for="display_bar" style="cursor: pointer;">开启</label>
     <br />
-    <input type="radio" name="scroll_bar" id="hidden_bar" value="hidden" <?php echo $hidden_bar;?>/>
+    <input type="radio" name="wp_dialog_bar" id="hidden_bar" value="hidden" <?php echo $hidden_bar;?>/>
     <label for="hidden_bar" style="cursor: pointer;">关闭</label>
 </p>
 <p><h4>让网站嗨一下</h4>
@@ -149,7 +149,7 @@ function display_wp_dialog_page() {
 <span>邮件订阅地址：</span>
     <input type="text" name="Diy_feed" placeholder="比如：http://list.qq.com/cgi-bin/qf_invite?id=71a2f28dff63348c301ded982b0a083857be253891e9bae8" id="guestbook" style="width:322px" value="<?php echo get_option('Diy_feed');?>"/>（留空则使用WP默认订阅）
     
-<?php if((get_option('scroll_bar')==""||get_option('scroll_bar')=="display")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
+<?php if((get_option('wp_dialog_bar')==""||get_option('wp_dialog_bar')=="display")&&(get_option('display_dialog')=="" || get_option('display_dialog')=="display")){ ?>
 <p><h4>手动呼出对话框功能</h4>
     <input type="radio" name="display_button" id="button_display" value="display" <?php echo $button_display;?>/>
     <label for="button_display" style="cursor: pointer;">开启</label>
@@ -167,7 +167,7 @@ function display_wp_dialog_page() {
 </p> 
     <br />
     <input type="hidden" name="action" value="update" />   
-    <input type="hidden" name="page_options" value="display_dialog,scroll_bar,crazy,display_button,copyright_warn,guestbook,music,Diy_feed,so_content,gu_content,st_content" />
+    <input type="hidden" name="page_options" value="display_dialog,wp_dialog_bar,crazy,display_button,copyright_warn,guestbook,music,Diy_feed,so_content,gu_content,st_content" />
     <input type="submit" value="保存设置" class="button-primary" />
 </p>   
 </form>

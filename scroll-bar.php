@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.2',__FILE__);?>" />
 <?php } ?>
 
-<?php if(get_option('scroll_bar')=="display" || get_option('scroll_bar')=="" ){?>
+<?php if(get_option('wp_dialog_bar')=="display" || get_option('wp_dialog_bar')=="" ){?>
 <div id="gg">
 	<div class="close"><a href="javascript:void(0)" onclick="$('#gg').slideUp('slow');" title="关闭">×</a>
 	<div id="feedb"><a href="<?php if(get_option('Diy_feed')==""){echo "/feed";} else {echo get_option('Diy_feed');}?>" rel="nofollow" target="_blank" title="欢迎订阅我的博客" class="image"><img alt="订阅图标按钮" src="<?php echo plugins_url('images/feed.gif',__FILE__);?>" style="width:23px;height:23px;" /></a>
