@@ -53,7 +53,7 @@ function welcome(){
         } else {
             var title = '欢迎来自【'+search+'】的朋友！';
         } 
-        var content = tipkey+'<?php echo get_option('so_content');?>';
+        var content = tipkey+'<?php echo preg_replace('/\'/i','"',get_option('so_content'));?>';
         if (content = ""){
             content = '若当前文章未能解决您的问题，您可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
         }
@@ -62,14 +62,14 @@ function welcome(){
         var wel = getCookie('welcome');
         if (username != "null" && wel !='already') {
             var title = '【'+username+'】欢迎回来！';
-            var content = '<?php echo get_option('gu_content');?>';
+            var content = '<?php echo preg_replace('/\'/i','"',get_option('gu_content'));?>';
             if (content == ' ' || content == ''){
                 content = '温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
             }
             DiyDialog(title,content);            
         } else if(username == "null" && wel !='already') {
             var title = '您好，欢迎访问我的个人博客！';
-            var content = '<?php echo get_option('st_content');?>';
+            var content = '<?php echo preg_replace('/\'/i','"',get_option('st_content'));?>';
             if (content == ' ' || content == ''){
                 content = '温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
             }
