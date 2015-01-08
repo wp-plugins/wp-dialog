@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP Dialog
 Plugin URI:  http://zhangge.net/4718.html
-Description: <strong>WordPress友好对话框&底部滚动条插件</strong>，1. 通过这个插件可以为博客增加一个友好的右下角滑动对话框，可以自动判断搜索来路、新老访客(是否留过言)，给出不同的欢迎语句！2. 在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框、嗨一下按钮；3. 启用这个插件之后还能够在有人复制文章网站内容的时候，弹出转载版权提示；所有功能在设置界面都能灵活地开启或关闭。
-Version: 1.2.3
+Description: <strong>WordPress友好对话框&底部滚动条插件</strong>，1. 通过这个插件可以为博客增加一个友好的右下角滑动对话框，可以自动判断搜索来路、新老访客(是否留过言)，给出自定义欢迎语句！2. 在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框、嗨一下按钮；3. 启用这个插件之后还能够在有人复制文章网站内容的时候，弹出转载版权提示；所有功能在设置界面都能灵活地开启或关闭。
+Version: 1.2.4
 Author: 张戈
 Author URI: http://zhangge.net/about/
 Copyright: 张戈博客原创插件，任何个人或团体不可擅自更改版权。
@@ -38,6 +38,13 @@ function WP_Dialog_plugin_action_links($action_links, $plugin_file, $plugin_info
     }
 }  
 new WP_Dialog();
+
+register_activation_hook(__FILE__, 'wp_dialog_install');
+function wp_dialog_install() {
+    add_option("so_content", "若当前文章未能解决您的问题，您可以先尝试站内搜索，当然也可以喔(^_^)!", '', 'yes');
+    add_option("gu_content", "温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!", '', 'yes');
+    add_option("st_content", "温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!", '', 'yes');
+}    
 ?>
 <?php   
 if( is_admin() ) {   
@@ -89,7 +96,23 @@ function display_wp_dialog_page() {
             $enabled='checked="checked"';
         } else {
             $disabled='checked="checked"';
-        }        
+        }
+        if(get_option('so_content') ==""){
+            $so_content = "若当前文章未能解决您的问题，您可以先尝试站内搜索，当然也可以给我留言喔(^_^)!";
+        } else {
+            $so_content = get_option('so_content');
+        }
+        if(get_option('gu_content') ==""){
+            $gu_content = "温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!";
+        } else {
+            $gu_content = get_option('gu_content');
+        }
+        if(get_option('st_content') ==""){
+            $st_content = "温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!";
+        } else {
+            $st_content = get_option('st_content');
+        }
+        
 ?>
 <p><h4>主体对话框功能</h4>
     <input type="radio" name="display_dialog" id="display_dialog" value="display" <?php echo $display_dialog;?>/>
@@ -97,6 +120,14 @@ function display_wp_dialog_page() {
     <br />
     <input type="radio" name="display_dialog" id="hidden_dialog" value="hidden" <?php echo $hidden_dialog;?>/>
     <label for="hidden_dialog" style="cursor: pointer;">关闭</label>
+</p>
+<p><h4>设置欢迎内容(支持html语言)</h4>
+1). 搜索引擎：<br />
+<textarea name="so_content" id="so_content" placeholder="留空则使用插件默认欢迎语..." cols="55" rows="3"><?php echo $so_content;?></textarea><br />
+2). 留言熟客：<br />
+<textarea name="gu_content" id="gu_content" placeholder="留空则使用插件默认欢迎语..." cols="55" rows="3"><?php echo $gu_content;?></textarea><br />
+3). 首次光临：<br />
+<textarea name="st_content" id="st_content" placeholder="留空则使用插件默认欢迎语..." cols="55" rows="3"><?php echo $st_content;?></textarea><br />
 </p>
 <p><h4>底部滚动推荐条</h4>
     <input type="radio" name="scroll_bar" id="display_bar" value="display" <?php echo $display_bar;?>/>
@@ -112,11 +143,9 @@ function display_wp_dialog_page() {
     <input type="radio" name="crazy" id="hidden_hi" value="hidden" <?php echo $hidden_hi;?>/>
     <label for="hidden_hi" style="cursor: pointer;">关闭</label>
 </p>
-<p> 歌曲url地址(必填项目,一首一行)：<br />
+<p> 歌曲url地址(一行一首)：<br />
 <textarea name="music" id="music" placeholder="比如：http://zhagnge.net/music.mp3(推荐将音乐上传到七牛)" cols="55" rows="6"><?php echo get_option('music');?></textarea>
 </p>
-<span>博客留言地址：</span>
-    <input type="text" name="guestbook" placeholder="比如：http://zhagnge.net/liuyan/" id="guestbook" style="width:322px" value="<?php echo get_option('guestbook');?>"/>（对话框超链接）<br />
 <span>邮件订阅地址：</span>
     <input type="text" name="Diy_feed" placeholder="比如：http://list.qq.com/cgi-bin/qf_invite?id=71a2f28dff63348c301ded982b0a083857be253891e9bae8" id="guestbook" style="width:322px" value="<?php echo get_option('Diy_feed');?>"/>（留空则使用WP默认订阅）
     
@@ -138,7 +167,7 @@ function display_wp_dialog_page() {
 </p> 
     <br />
     <input type="hidden" name="action" value="update" />   
-    <input type="hidden" name="page_options" value="display_dialog,scroll_bar,crazy,display_button,copyright_warn,guestbook,music,Diy_feed" />
+    <input type="hidden" name="page_options" value="display_dialog,scroll_bar,crazy,display_button,copyright_warn,guestbook,music,Diy_feed,so_content,gu_content,st_content" />
     <input type="submit" value="保存设置" class="button-primary" />
 </p>   
 </form>

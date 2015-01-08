@@ -30,8 +30,54 @@
 	</div>
 </div>
 <?php } ?>
-
 <script type="text/javascript">
+function welcome(){
+    if (ykey != 'undefined' && ykey != ''&& ykey != null){
+        var tipkey = '您搜索的关键词是【'+ykey+'】，';
+    } else {
+        var tipkey = '';(getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*')||GetCookie('author'))
+    }
+    var username = decodeURIComponent(
+            (getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('author')
+        ) || (
+            getCookie('name').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('name')
+        ) || (
+            getCookie('inpName').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('inpName')
+        ) || (
+            getCookie('commentposter').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('commentposter')
+        ) || null);
+    if (search != null) {
+        if (username != "null") {
+            var title = "【"+username+'】,欢迎从【'+search+'】回来！';
+                
+        } else {
+            var title = '欢迎来自【'+search+'】的朋友！';
+        } 
+        var content = tipkey+'<?php echo get_option('so_content');?>';
+        if (content = ""){
+            content = '若当前文章未能解决您的问题，您可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
+        }
+        DiyDialog(title,content);
+    } else {
+        var wel = getCookie('welcome');
+        if (username != "null" && wel !='already') {
+            var title = '【'+username+'】欢迎回来！';
+            var content = '<?php echo get_option('gu_content');?>';
+            if (content == ' ' || content == ''){
+                content = '温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
+            }
+            DiyDialog(title,content);            
+        } else if(username == "null" && wel !='already') {
+            var title = '您好，欢迎访问我的个人博客！';
+            var content = '<?php echo get_option('st_content');?>';
+            if (content == ' ' || content == ''){
+                content = '温馨提示：有需求可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
+            }
+            DiyDialog(title,content);            
+        }
+        addCookie('welcome','already');
+    }
+}
 <?php if(get_option('guestbook') != ''){ ?>
     var welurl = '<a target="_blank" style="color:#0196e3;" href="<?php echo get_option('guestbook');?>">给我留言</a>';
 <?php } else { ?>

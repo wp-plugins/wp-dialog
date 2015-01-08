@@ -4,7 +4,7 @@ Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
@@ -18,7 +18,7 @@ Added a Friendly Dialog And Rand Scroll Bar for Wordpress blog that for display 
 
 插件特色    
     1、能够取得访客搜索来路和搜索关键词，并在右下角滑出欢迎对话框；    
-    2、能够区分用户是否在博客留过言，从而给出不同的欢迎提示；
+    2、能够区分用户是否在博客留过言，从而给出自定义欢迎提示；
     3、在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框和嗨一下按钮；
     4、当有人复制博客任何内容时，将弹出友好的版权保留提醒。    
         
@@ -28,7 +28,7 @@ Added a Friendly Dialog And Rand Scroll Bar for Wordpress blog that for display 
 
 == Installation ==
 
-可以通过以下两种方法的其中一种来安装ZgBoke-Nav 插件：
+可以通过以下两种方法的其中一种来安装 WP-Dialog 插件：
 
 1. 将下载的文件解压缩，然后将`WP-Dialog`文件夹 上传到 `/wp-content/plugins/`目录，在插件后台启用即可
 
@@ -61,6 +61,10 @@ Best Regards！
 4. scroll Screenshot
  
 == Changelog ==
+
+= 1.2.4 =
+
+* 后台新增欢迎内容设置，可自定义对话框欢迎文字内容，并支持HTML语言
 
 = 1.2.3 =
 
