@@ -1,6 +1,6 @@
 <?php if(get_option('display_dialog')=="" || get_option('display_dialog')=="display"){ ?>
-<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4',__FILE__);?>"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4',__FILE__);?>" />
+<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4.1',__FILE__);?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4.1',__FILE__);?>" />
 <?php } ?>
 
 <?php if(get_option('wp_dialog_bar')=="display" || get_option('wp_dialog_bar')=="" ){?>
@@ -35,16 +35,16 @@ function welcome(){
     if (ykey != 'undefined' && ykey != ''&& ykey != null){
         var tipkey = '您搜索的关键词是【'+ykey+'】，';
     } else {
-        var tipkey = '';(getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*')||GetCookie('author'))
+        var tipkey = '';
     }
-    var username = decodeURIComponent(
-            (getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('author')
+    var username = decodeURIComponent((
+		    getCookie('author').match('[\u4e00-\u9fa5a-zA-Z0-9%].*') || GetCookie('author')
         ) || (
-            getCookie('name').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('name')
+            getCookie('name').match('[\u4e00-\u9fa5a-zA-Z0-9%].*') || GetCookie('name')
         ) || (
-            getCookie('inpName').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('inpName')
+            getCookie('inpName').match('[\u4e00-\u9fa5a-zA-Z0-9%].*') || GetCookie('inpName')
         ) || (
-            getCookie('commentposter').match('[\u4e00-\u9fa5a-zA-Z0-9].*') || GetCookie('commentposter')
+            getCookie('commentposter').match('[\u4e00-\u9fa5a-zA-Z0-9%].*') || GetCookie('commentposter')
         ) || null);
     if (search != null) {
         if (username != "null") {
