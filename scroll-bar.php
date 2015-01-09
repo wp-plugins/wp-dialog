@@ -1,6 +1,6 @@
 <?php if(get_option('display_dialog')=="" || get_option('display_dialog')=="display"){ ?>
-<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4.1',__FILE__);?>"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4.1',__FILE__);?>" />
+<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4.2',__FILE__);?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4.2',__FILE__);?>" />
 <?php } ?>
 
 <?php if(get_option('wp_dialog_bar')=="display" || get_option('wp_dialog_bar')=="" ){?>
@@ -54,7 +54,7 @@ function welcome(){
             var title = '欢迎来自【'+search+'】的朋友！';
         } 
         var content = tipkey+'<?php echo preg_replace('/\'/i','"',get_option('so_content'));?>';
-        if (content = ""){
+        if (content == ""){
             content = '若当前文章未能解决您的问题，您可以先尝试站内搜索，当然也可以给我留言喔(^_^)!';
         }
         DiyDialog(title,content);
