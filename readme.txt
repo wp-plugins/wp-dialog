@@ -4,7 +4,7 @@ Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 1.2.4.3
+Stable tag: 1.2.4.4
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
@@ -61,6 +61,11 @@ Best Regards！
 4. scroll Screenshot
  
 == Changelog ==
+
+= 1.2.4.4 =
+
+* 修复了在IE下复制文字无法弹出版权提醒的BUG；
+* 新增宽度小雨900px时隐藏底部公告栏的特性。
 
 = 1.2.4.3 =
 

@@ -1,6 +1,6 @@
 <?php if(get_option('display_dialog')=="" || get_option('display_dialog')=="display"){ ?>
-<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4',__FILE__);?>"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4',__FILE__);?>" />
+<script type="text/javascript" src="<?php echo plugins_url('diydialog.js?ver=1.2.4.4',__FILE__);?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url('skins/default.css?ver=1.2.4.4',__FILE__);?>" />
 <?php } ?>
 
 <?php if(get_option('wp_dialog_bar')=="display" || get_option('wp_dialog_bar')=="" ){?>
@@ -86,7 +86,7 @@ function welcome(){
 <?php if(get_option('copyright_warn')=="enabled"||get_option('copyright_warn')==""){ ?>
 function warning(){
     if(navigator.userAgent.indexOf("MSIE")>0)  {   
-        art.dialog.alert('复制成功！若要转载请务必保留原文链接，谢谢合作！');
+        art.dialog.alert_succeed('复制成功！若要转载请务必保留原文链接，谢谢合作！');
     } else {  
         alert("复制成功！若要转载请务必保留原文链接，谢谢合作！");
     }
