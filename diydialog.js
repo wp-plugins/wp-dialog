@@ -2139,8 +2139,8 @@ switch(sosuo){
         ykey = 'undefined';
     }
     break; 
-  case "so":
-    search='360搜索';
+  case "haosou":
+    search='360好搜';
     grep=/&q\=.*$/i;
     str=refer.match(grep);
     if(str != null){ 
@@ -2292,7 +2292,9 @@ function DiyDialog(title,content){
     });
 }
 $(document).ready(function(){
-    welcome();
+if(document.body.clientWidth>720) {  
+        welcome();
+    }
 });
 function warning(){
     if(navigator.userAgent.indexOf("MSIE")>0)  {   
@@ -2337,7 +2339,107 @@ document.getElementById(obj).style.display="none";
     })
     })(jQuery);
     $(document).ready(function(){
-    $(".bulletin").Scroll({line:1,speed:1000,timer:5000});//修改此数字调整滚动时间
+    $(".rand_post").Scroll({line:1,speed:1000,timer:5000});//修改此数字调整滚动时间
     });
+//cookies
+//*********************************************************
+//*********************************************************
+// 目的：    设置Cookie
+// 输入：    sName, sValue,iExpireDays
+// 返回：    无
+//*********************************************************
+function SetCookie(sName, sValue,iExpireDays) {
+	if (iExpireDays){
+		var dExpire = new Date();
+		dExpire.setTime(dExpire.getTime()+parseInt(iExpireDays*24*60*60*1000));
+		document.cookie = sName + "=" + escape(sValue) + "; expires=" + dExpire.toGMTString()+ "; path=/;domain=.zhangge.net";
+	}
+	else{
+		document.cookie = sName + "=" + escape(sValue)+ "; path=/;domain=.zhangge.net";
+	}
+}
+
+//*********************************************************
+//*********************************************************
+// 目的：    返回Cookie
+// 输入：    Name
+// 返回：    Cookie值
+//*********************************************************
+function GetCookie(sName) {
+	var arr = document.cookie.match(new RegExp("(^| )"+sName+"=([^;]*)(;|$)"));
+	if(arr !=null){return unescape(arr[2])};
+	return null;
+
+}
+//*********************************************************
+//*********************************************************
+// 目的：    加载信息
+// 输入：    无
+// 返回：    无
+//*********************************************************
+function LoadRememberInfo() {
+	var strName=GetCookie("author");
+	var strEmail=GetCookie("email");
+	var strHomePage=GetCookie("url");
+	var bolRemember=GetCookie("chkRemember");
+    var a_vlaue= document.getElementById("author");
+    if (a_vlaue != null){
+	    if(bolRemember=="true"){
+		    if(strName){document.getElementById("author").value=decodeURIComponent(strName);};
+		    if(strEmail){document.getElementById("email").value=strEmail;};
+		    if(strHomePage){document.getElementById("url").value=decodeURIComponent(strHomePage);};
+		    if(bolRemember){document.getElementById("saveme").checked=bolRemember;};
+	    }
+
+	    if(GetCookie("username")){
+		    document.getElementById("author").value=unescape(GetCookie("username"));
+	    }
+    }
+    //delsomeinfo
+    var strName=GetCookie("author")||"none";
+    if(!strName.match('%E5%BC%A0%E6%88%88')){
+        $('.edit-link').hide();
+        $('.delete-comment').hide();
+        $('.comment-edit-link').hide();
+        $('.nav-set').hide();
+    }
+}
+//*********************************************************
+//*********************************************************
+// 目的：    保存信息
+// 输入：    无
+// 返回：    无
+//*********************************************************
+function SaveRememberInfo() {
+	var strName=document.getElementById("author").value;
+	var strEmail=document.getElementById("email").value;
+	var strHomePage=document.getElementById("url").value;
+	var bolRemember=document.getElementById("saveme").checked;
+
+	SetCookie("author",encodeURIComponent(strName),365);
+	SetCookie("email",strEmail,365);
+	SetCookie("url",encodeURIComponent(strHomePage),365);
+	SetCookie("chkRemember",bolRemember,365);
+
+}
+//*********************************************************
+//*********************************************************
+// 目的：    移除信息
+// 输入：    无
+// 返回：    无
+//*********************************************************
+function RemoveRememberInfo() {
+    
+	SetCookie("author",'',365);
+	SetCookie("email",'',365);
+	SetCookie("url",'',365);
+	SetCookie("chkRemember",'false',365);
+
+}
 //crazy    
-function hig(){(function(){function c(){ $(".mw_added_css").remove();var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){$("audio").remove();var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},5000)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>如果你正在读这篇文章，那是因为你的浏览器不支持音频元素。我们建议你得到一个新的浏览器。</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i=CrazyMusic[Math.floor(Math.random()*Number(CrazyMusic.length))];var f=hicss;var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()};function stopCrazy(){ $("audio").remove();$(".mw_added_css").remove()}    
+function hig(){(
+    function(){function c(){ 
+        if(CrazyMusic[0]=="") {
+            alert("温馨提示：您未定义音乐地址，请到插件后台设置！");
+        }
+        $(".mw_added_css").remove();var e=document.createElement("link");e.setAttribute("type","text/css");e.setAttribute("rel","stylesheet");e.setAttribute("href",f);e.setAttribute("class",l);document.body.appendChild(e)}function h(){var e=document.getElementsByClassName(l);for(var t=0;t<e.length;t++){document.body.removeChild(e[t])}}function p(){var e=document.createElement("div");e.setAttribute("class",a);document.body.appendChild(e);setTimeout(function(){document.body.removeChild(e)},100)}function d(e){return{height:e.offsetHeight,width:e.offsetWidth}}function v(i){var s=d(i);return s.height>e&&s.height<n&&s.width>t&&s.width<r}function m(e){var t=e;var n=0;while(!!t){n+=t.offsetTop;t=t.offsetParent}return n}function g(){var e=document.documentElement;if(!!window.innerWidth){return window.innerHeight}else if(e&&!isNaN(e.clientHeight)){return e.clientHeight}return 0}function y(){if(window.pageYOffset){return window.pageYOffset}return Math.max(document.documentElement.scrollTop,document.body.scrollTop)}function E(e){var t=m(e);return t>=w&&t<=b+w}function S(){$("audio").remove();var e=document.createElement("audio");e.setAttribute("class",l);e.src=i;e.loop=false;e.addEventListener("canplay",function(){setTimeout(function(){x(k)},500);setTimeout(function(){N();p();for(var e=0;e<O.length;e++){T(O[e])}},5000)},true);e.addEventListener("ended",function(){N();h()},true);e.innerHTML=" <p>如果你正在读这篇文章，那是因为你的浏览器不支持音频元素。我们建议你得到一个新的浏览器。</p> <p>";document.body.appendChild(e);e.play()}function x(e){e.className+=" "+s+" "+o}function T(e){e.className+=" "+s+" "+u[Math.floor(Math.random()*u.length)]}function N(){var e=document.getElementsByClassName(s);var t=new RegExp("\\b"+s+"\\b");for(var n=0;n<e.length;){e[n].className=e[n].className.replace(t,"")}}var e=30;var t=30;var n=350;var r=350;var i=CrazyMusic[Math.floor(Math.random()*Number(CrazyMusic.length))];var f=hicss;var s="mw-harlem_shake_me";var o="im_first";var u=["im_drunk","im_baked","im_trippin","im_blown"];var a="mw-strobe_light";var l="mw_added_css";var b=g();var w=y();var C=document.getElementsByTagName("*");var k=null;for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){if(E(A)){k=A;break}}}if(A===null){return}c();S();var O=[];for(var L=0;L<C.length;L++){var A=C[L];if(v(A)){O.push(A)}}})()};function stopCrazy(){ $("audio").remove();$(".mw_added_css").remove()}    

@@ -3,7 +3,7 @@
 Plugin Name: WP Dialog
 Plugin URI:  http://zhangge.net/4718.html
 Description: <strong>WordPress友好对话框&底部滚动条插件</strong>，1. 通过这个插件可以为博客增加一个友好的右下角滑动对话框，可以自动判断搜索来路、新老访客(是否留过言)，给出自定义欢迎语句！2. 在博客底部集成随机文章滚动推荐条，并在右侧集成手动呼出对话框、嗨一下按钮；3. 启用这个插件之后还能够在有人复制文章网站内容的时候，弹出转载版权提示；所有功能在设置界面都能灵活地开启或关闭。
-Version: 1.2.4.4
+Version: 1.2.5.0
 Author: 张戈
 Author URI: http://zhangge.net/about/
 Copyright: 张戈博客原创插件，任何个人或团体不可擅自更改版权。
@@ -112,6 +112,12 @@ function display_wp_dialog_page() {
         } else {
             $st_content = get_option('st_content');
         }
+        //Cookies记忆功能
+        if (get_option('LoadRememberInfo')=="" || get_option('LoadRememberInfo')=="enabled"){
+            $enabled='checked="checked"';
+        } else {
+            $disabled='checked="checked"';
+        }
         
 ?>
 <p><h4>主体对话框功能</h4>
@@ -163,6 +169,13 @@ function display_wp_dialog_page() {
     <label for="enabled" style="cursor: pointer;">开启</label>
     <br />
     <input type="radio" name="copyright_warn" id="disabled" value="disabled" <?php echo $disabled;?>/>
+    <label for="disabled" style="cursor: pointer;">关闭</label>
+</p>
+<p><h4>Cookies记忆功能</h4>
+    <input type="radio" name="LoadRememberInfo" id="enabled" value="enabled" <?php echo $enabled;?>/>
+    <label for="enabled" style="cursor: pointer;">开启</label>
+    <br />
+    <input type="radio" name="LoadRememberInfo" id="disabled" value="disabled" <?php echo $disabled;?>/>
     <label for="disabled" style="cursor: pointer;">关闭</label>
 </p> 
     <br />
