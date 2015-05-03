@@ -2395,14 +2395,6 @@ function LoadRememberInfo() {
 		    document.getElementById("author").value=unescape(GetCookie("username"));
 	    }
     }
-    //delsomeinfo
-    var strName=GetCookie("author")||"none";
-    if(!strName.match('%E5%BC%A0%E6%88%88')){
-        $('.edit-link').hide();
-        $('.delete-comment').hide();
-        $('.comment-edit-link').hide();
-        $('.nav-set').hide();
-    }
 }
 //*********************************************************
 //*********************************************************
