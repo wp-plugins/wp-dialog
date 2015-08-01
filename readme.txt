@@ -3,8 +3,8 @@ Contributors: ZhangGe
 Donate link: http://zhangge.net/about/
 Tags: WP_Dialog,artdialog,blog dialog,友好对话框,博客对话框,搜索来路,随机滚动条,底部滚动条,scroll bar
 Requires at least: 3.0
-Tested up to: 4.2.1
-Stable tag: 1.2.5.1
+Tested up to: 4.2.3
+Stable tag: 1.2.5.2
 License: GPLv2 or later
 License URI: http://zhangge.net/4718.html
 
@@ -62,6 +62,12 @@ Best Regards！
 4. scroll Screenshot
  
 == Changelog ==
+
+= 1.2.5.2 =
+
+* 新增好搜、必应、神马和有道搜索来路判断功能；
+* 压缩js代码，优化记载速度；
+* 对话框改为在移动端不弹出。
 
 = 1.2.5.1 =
 
